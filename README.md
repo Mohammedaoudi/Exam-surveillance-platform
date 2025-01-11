@@ -5,14 +5,11 @@ A comprehensive web application for managing and planning exam surveillance at t
 ## 🚀 Features
 
 - Department and faculty management
-- Exam session planning and scheduling
+- Exam session planning
 - Automated surveillance assignments
 - Venue management (amphitheaters and classrooms)
 - Backup supervisor system
-- Automated surveillance schedule generation
-- Real-time updates and notifications
-- Advanced conflict resolution system
-- Customizable reporting system
+- Surveillance schedule generation
 
 ## 🛠 Technical Architecture
 ![System Architecture](https://github.com/user-attachments/assets/2e48b461-7302-44e0-a434-67cbd225a190)
@@ -43,11 +40,10 @@ Built on Spring Cloud Netflix stack for robust microservices:
   - Runtime configuration updates
 
 - **Core Microservices**
-  - Exam Management Service
-  - Department Service
-  - Faculty Service
-  - Schedule Service
-  - Notification Service
+  - Exam Service (Service des Examens)
+  
+  - Department Service (Service des Départements)
+   
 
 - **Cross-Cutting Concerns**
   - Circuit Breaker (Resilience4j)
@@ -65,7 +61,6 @@ Built on Spring Cloud Netflix stack for robust microservices:
 ### Database Architecture
 - MySQL databases (one per service)
 - Database per service pattern
-- Flyway for database migrations
 
 ## 📋 Prerequisites
 
