@@ -45,11 +45,7 @@ Built on Spring Cloud Netflix stack for robust microservices:
   - Department Service (Service des Départements)
    
 
-- **Cross-Cutting Concerns**
-  - Circuit Breaker (Resilience4j)
-  - Distributed Tracing
-  - Centralized Logging
-  - Monitoring (Spring Boot Admin)
+
 
 ### Security
 - Keycloak for Identity and Access Management
