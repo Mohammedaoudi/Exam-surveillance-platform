@@ -76,7 +76,7 @@ Built on Spring Cloud Netflix stack for robust microservices:
 git clone https://github.com/Mohammedaoudi/Exam-surveillance-platform.git
 
 # Navigate to frontend directory
-cd material-tailwind-dashboard-react-main
+cd frontend
 
 # Install dependencies
 npm install
