@@ -82,7 +82,7 @@ Built on Spring Cloud Netflix stack for robust microservices:
 
 ```bash
 # Clone the repository
-git clone https://github.com/CHOUAY15/JEE-Project.git
+git clone https://github.com/Mohammedaoudi/Exam-surveillance-platform.git
 
 # Navigate to frontend directory
 cd material-tailwind-dashboard-react-main
@@ -153,12 +153,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 ```
 
-## 🔄 CI/CD Pipeline
 
-- GitHub Actions for automated testing and deployment
-- Docker images pushed to GitHub Container Registry
-- Automated deployment to development environment
-- Manual promotion to production
 
 ## 👥 Contributors
 
@@ -168,7 +163,7 @@ eureka:
 
 ## 💬 Support
 
-For support and questions, please [open an issue](https://github.com/CHOUAY15/JEE-Project/issues) on GitHub.
+For support and questions, please [open an issue](https://github.com/Mohammedaoudi/Exam-surveillance-platform/issues) on GitHub.
 
 ## 📄 License
 
