@@ -1,91 +1,130 @@
-# Système de Surveillance des Examens - ENSA El Jadida
+# Exam Surveillance Management System - ENSA El Jadida
 
-Application web de gestion et planification des surveillances d'examens pour l'École Nationale des Sciences Appliquées d'El Jadida.
+A comprehensive web application for managing and planning exam surveillance at the National School of Applied Sciences of El Jadida (ENSA El Jadida).
 
-## 🚀 Fonctionnalités
+## 🚀 Features
 
-- Gestion des départements et enseignants
-- Planification des sessions d'examens
-- Attribution automatique des surveillances
-- Gestion des locaux (amphithéâtres et salles)
-- Système de réservistes
-- Génération de plannings de surveillance
+- Department and faculty management
+- Exam session planning and scheduling
+- Automated surveillance assignments
+- Venue management (amphitheaters and classrooms)
+- Backup supervisor system
+- Automated surveillance schedule generation
+- Real-time updates and notifications
+- Advanced conflict resolution system
+- Customizable reporting system
 
-## 🛠 Architecture
-![WhatsApp Image 2025-01-05 à 15 28 29_000f4f33](https://github.com/user-attachments/assets/2e48b461-7302-44e0-a434-67cbd225a190)
+## 🛠 Technical Architecture
+![System Architecture](https://github.com/user-attachments/assets/2e48b461-7302-44e0-a434-67cbd225a190)
 
-### Frontend
-- React.js
-- Redux pour la gestion d'état
-- Axios pour les appels API
-- Interface responsive et moderne
+### Frontend Technology Stack
+- React.js for UI components
+- Redux Toolkit for state management and API calls
+- Material Tailwind for modern UI components
+- Responsive design optimized for all devices
 
-### Backend
-- Architecture microservices avec Spring Boot
-- Services :
-  - Service des Examens
-  - Service des Départements
-- API Gateway
-- Eureka Server pour la découverte de services
-- Keycloak pour l'authentification
+### Backend Microservices Architecture
+Built on Spring Cloud Netflix stack for robust microservices:
 
-### Base de données
-- MySQL pour chaque service
+- **API Gateway Service**
+  - Spring Cloud Gateway for routing
+  - Load balancing
+  - Security filters
+  - Rate limiting
 
-## 📋 Prérequis
+- **Service Registry (Eureka Server)**
+  - Service discovery
+  - Load balancing
+  - Fault tolerance
+
+- **Config Server**
+  - Centralized configuration
+  - Environment-specific settings
+  - Runtime configuration updates
+
+- **Core Microservices**
+  - Exam Management Service
+  - Department Service
+  - Faculty Service
+  - Schedule Service
+  - Notification Service
+
+- **Cross-Cutting Concerns**
+  - Circuit Breaker (Resilience4j)
+  - Distributed Tracing
+  - Centralized Logging
+  - Monitoring (Spring Boot Admin)
+
+### Security
+- Keycloak for Identity and Access Management
+  - OAuth 2.0 / OpenID Connect
+  - Role-based access control
+  - Single Sign-On (SSO)
+  - User Federation
+
+### Database Architecture
+- MySQL databases (one per service)
+- Database per service pattern
+- Flyway for database migrations
+
+## 📋 Prerequisites
 
 - Node.js (v14+)
 - Java 17
-- Maven
-- MySQL
+- Maven 3.8+
+- MySQL 8.0+
 - Docker & Docker Compose
-- Keycloak
+- Keycloak 21+
 
 ## 🚀 Installation
 
-### Configuration du Frontend
+### Frontend Setup
 
 ```bash
-# Cloner le repository
+# Clone the repository
 git clone https://github.com/CHOUAY15/JEE-Project.git
 
-# Accéder au dossier frontend
+# Navigate to frontend directory
 cd material-tailwind-dashboard-react-main
 
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Lancer l'application en développement
+# Start development server
 npm start
 ```
 
-### Configuration du Backend
+### Backend Services Setup
 
 ```bash
-# Accéder au dossier du service
+# Start infrastructure services
+docker-compose up -d
+
+# Navigate to service directory
 cd [service-name]
 
-# Compiler avec Maven
+# Build with Maven
 mvn clean install
 
-# Lancer le service
+# Run the service
 mvn spring-boot:run
 ```
 
-### Configuration de Keycloak
+### Keycloak Configuration
 
-1. Lancer Keycloak
+1. Start Keycloak server:
 ```bash
 docker-compose up keycloak
 ```
 
-2. Créer un realm
-3. Configurer le client
-4. Ajouter les rôles et utilisateurs
+2. Access Keycloak Admin Console (http://localhost:8180)
+3. Create new realm
+4. Configure client settings
+5. Set up roles and initial users
 
 ## 🔑 Configuration
 
-### Variables d'environnement Frontend
+### Frontend Environment Variables
 ```env
 REACT_APP_API_URL=http://localhost:8080
 REACT_APP_KEYCLOAK_URL=http://localhost:8180
@@ -93,27 +132,45 @@ REACT_APP_KEYCLOAK_REALM=your-realm
 REACT_APP_KEYCLOAK_CLIENT_ID=your-client-id
 ```
 
-### Configuration des Services
+### Microservice Configuration Example
 ```yaml
-server:
-  port: 8080
-
 spring:
   application:
     name: exam-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+    discovery:
+      enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/exam_db
     username: root
     password: root
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 ```
 
+## 🔄 CI/CD Pipeline
 
-## 👥 Contributeurs
+- GitHub Actions for automated testing and deployment
+- Docker images pushed to GitHub Container Registry
+- Automated deployment to development environment
+- Manual promotion to production
 
-- CHOUAY Walid
-- BESSAM Adam
-- DAOUDI Mohammed
+## 👥 Contributors
 
-## 📄 Licence
+- [CHOUAY Walid](https://github.com/CHOUAY15) 
+- [BESSAM Adam](https://github.com/AdamBessam)
+- [DAOUDI Mohammed](https://github.com/Mohammedaoudi)
 
-Ce projet est la propriété de l'ENSA El Jadida. Tous droits réservés.
+## 💬 Support
+
+For support and questions, please [open an issue](https://github.com/CHOUAY15/JEE-Project/issues) on GitHub.
+
+## 📄 License
+
+This project is the property of ENSA El Jadida. All rights reserved.
+
