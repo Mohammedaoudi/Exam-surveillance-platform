@@ -145,6 +145,21 @@ eureka:
 ```
 
 
+## 🎥 Demo Video
+
+<div align="center">
+
+
+
+
+https://github.com/user-attachments/assets/e732830c-9c75-4c4a-896d-5fc497de7af0
+ 
+
+
+
+
+
+</div>
 
 ## 👥 Contributors
 
